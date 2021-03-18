@@ -1,0 +1,57 @@
+<h1>The list of Book</h1>
+
+<p>
+<a class="btn btn-link" href="
+    <?= $this->url('books', ['action'=>'add']); ?>">
+    New Book
+</a>
+<a class="btn btn-link" href="
+    <?= $this->url('authors', ['action'=>'admin']); ?>">
+    Admin Author
+</a>
+</p>
+
+<table class="table table-striped">
+
+   <tr>
+        <th>ID</th>
+        <th>Book Title</th>
+        <th>Description</th>
+        <th>Author Name</th>
+        <th>Date created</th>
+        <th>Actions</th>
+    </tr>
+
+    <?php foreach ($books as $book): ?>
+
+    <tr>
+        <td><?= $this->escapeHtml($book->getId()); ?></td>
+        <td>
+            <?= $this->escapeHtml($book->getTitle()); ?>
+        </td>
+
+        <td>
+            <?= $this->escapeHtml($book->getDescription()); ?>
+        </td>
+
+        <td>
+            <?= $this->escapeHtml($book->getAuthor()->getName()); ?>
+        </td>
+
+        <td><?= $this->escapeHtml($book->getDateCreated()); ?></td>
+        <td>
+            <a class="btn btn-info" href="<?= $this->url('books',
+                    ['action'=>'edit', 'id'=>$book->getId()]); ?>">
+                <span class="glyphicon glyphicon-pencil" ></span> Edit
+            </a>
+            <a class="btn btn-danger" href="<?= $this->url('books',
+                    ['action'=>'delete', 'id'=>$book->getId()]); ?>">
+                <span class="glyphicon glyphicon-remove"></span> Delete
+            </a>
+
+        </td>
+    </tr>
+
+    <?php endforeach; ?>
+
+</table>

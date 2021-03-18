@@ -1,0 +1,43 @@
+<h1>Manage Authors</h1>
+
+<p>
+<a class="btn btn-link" href="
+    <?= $this->url('authors', ['action'=>'add']); ?>">
+    New Author
+</a>
+<a class="btn btn-link" href="
+    <?= $this->url('application', ['action'=>'index']); ?>">
+    Admin Book
+</a>
+</p>
+
+<table class="table table-striped">
+
+   <tr>
+        <th>ID</th>
+        <th>Author Name</th>
+        <th>The number of book</th>
+        <th>Actions</th>
+    </tr>
+
+    <?php foreach ($authors as $author): ?>
+
+    <tr>
+        <td><?= $this->escapeHtml($author->getId()); ?></td>
+        <td>
+            <?= $this->escapeHtml($author->getName()); ?>
+        </td>
+        <td>
+            <?= $this->escapeHtml($author->getBooks()->count()); ?>
+        </td>
+        <td>
+            <a class="btn btn-info" href="<?= $this->url('authors',
+                    ['action'=>'edit', 'id'=>$author->getId()]); ?>">
+                <span class="glyphicon glyphicon-pencil" ></span> Edit
+            </a>
+        </td>
+    </tr>
+
+    <?php endforeach; ?>
+
+</table>

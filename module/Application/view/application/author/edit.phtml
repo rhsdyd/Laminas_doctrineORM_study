@@ -1,0 +1,39 @@
+<?php
+$form = $this->form;
+$form->get('name')->setAttributes([
+    'class'=>'form-control',
+    'placeholder'=>'Enter author name here'
+    ]);
+
+$form->get('submit')->setAttributes(['class'=>'btn btn-primary']);
+$form->get('submit')->setValue('Edit');
+$form->prepare();
+
+?>
+<a href="
+    <?= $this->url('authors', ['action'=>'admin']); ?>">
+    &lt;&lt; Back to list of author
+</a>
+
+
+<h1>Edit Book</h1>
+
+<p>
+    Please fill out the following form and click the *Edit* button.
+</p>
+
+<div class="row">
+    <div class="col-md-6">
+        <?= $this->form()->openTag($form); ?>
+
+        <div class="form-group">
+            <?= $this->formLabel($form->get('name')); ?>
+            <?= $this->formElement($form->get('name')); ?>
+            <?= $this->formElementErrors($form->get('name')); ?>
+        </div>
+
+        <?= $this->formElement($form->get('submit')); ?>
+
+        <?= $this->form()->closeTag(); ?>
+    </div>
+</div>
