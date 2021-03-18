@@ -1,5 +1,5 @@
 ## Introduction
-this Book module that moves accoring to the CRUP operations has been created with Laminas-mvc-skeleton
+this Book module that moves accoring to the CRUD operations has been created with Laminas-mvc-skeleton
 
 ## Apply the migrations to database
 ```
